@@ -1,0 +1,27 @@
+﻿@page
+@model assignment4.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Create New</a>
+</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach (var item in Model.Employee) {
+    <div class="col">
+        <a asp-page="./Details" asp-route-id="@item.EmployeeId" style="color: black; text-decoration: none;">
+        <div class="card">
+        <img src="~/img/northwind_employees/@item.PhotoPath" class="card-img-top align-self-center" alt="picture of employee" style="width: 350px; height: auto;">
+            <div class="card-body">
+                <p class="card-text text-center">@item.TitleOfCourtesy @item.FirstName @item.LastName</p>
+                <p class="card-text text-center">@item.Title</p>
+            </div>
+        </div>
+        </a>
+    </div>
+}
+</div>

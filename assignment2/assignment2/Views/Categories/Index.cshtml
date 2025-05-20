@@ -1,0 +1,37 @@
+﻿@model IEnumerable<assignment2.Models.Category>
+
+@{
+    ViewData["Title"] = "Northwind offers foods in these categories";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.DescriptionSortParm">
+                    @Html.DisplayNameFor(model => model.Description)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
